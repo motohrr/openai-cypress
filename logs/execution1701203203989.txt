@@ -1,0 +1,27 @@
+EXECUTION ID: 1701203203989
+
+REQUEST:
+write a script in cypress with the following title Login as Client user to: 
+ 1. go to http://diversatest.com:82/
+2. click on 'Identificarse' button
+3. enter email: testingclientemail@test.com
+4. enter password: password123
+5. click 'Iniciar sesión' button
+6. url should contains dashboard
+
+
+Response:
+describe("Login as Client user", () => {
+  it("should login successfully", () => {
+    cy.visit("http://diversatest.com:82/");
+
+    cy.contains("Identificarse").click();
+
+    cy.get('input[name="email"]').type("testingclientemail@test.com");
+    cy.get('input[name="password"]').type("password123");
+
+    cy.contains("Iniciar sesión").click();
+
+    cy.url().should("include", "dashboard");
+  });
+});

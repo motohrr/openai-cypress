@@ -1,0 +1,65 @@
+EXECUTION ID: 1701203226877
+
+REQUEST:
+write a script in cypress with the following title Authentication with the following test cases: 
+Title: Login as Client user
+1. go to http://diversatest.com:82/
+2. click on 'Identificarse' button
+3. enter email: testingclientemail@test.com
+4. enter password: password123
+5. click 'Iniciar sesión' button
+6. url should contains dashboard
+
+Title: Login as Owner user
+1. go to http://diversatest.com:82/
+2. click on 'Identificarse' button
+3. enter email: testingclientemail@test.com
+4. enter password: password123
+5. click 'Iniciar sesión' button
+6. url should contains dashboard
+
+Title: Login as Admin user
+1. go to http://diversatest.com:82/
+2. click on 'Identificarse' button
+3. enter email: testingclientemail@test.com
+4. enter password: password123
+5. click 'Iniciar sesión' button
+6. url should contains dashboard
+
+
+
+Response:
+describe("Login as Client user", () => {
+  it("should login successfully as a client user", () => {
+    cy.visit("http://diversatest.com:82/");
+    cy.contains("Identificarse").click();
+    cy.get('input[name="email"]').type("testingclientemail@test.com");
+    cy.get('input[name="password"]').type("password123");
+    cy.contains("Iniciar sesión").click();
+    cy.url().should("include", "dashboard");
+  });
+});
+
+// Login as Owner user
+describe("Login as Owner user", () => {
+  it("should login successfully as an owner user", () => {
+    cy.visit("http://diversatest.com:82/");
+    cy.contains("Identificarse").click();
+    cy.get('input[name="email"]').type("testingowneremail@test.com");
+    cy.get('input[name="password"]').type("password123");
+    cy.contains("Iniciar sesión").click();
+    cy.url().should("include", "dashboard");
+  });
+});
+
+// Login as Admin user
+describe("Login as Admin user", () => {
+  it("should login successfully as an admin user", () => {
+    cy.visit("http://diversatest.com:82/");
+    cy.contains("Identificarse").click();
+    cy.get('input[name="email"]').type("testingadminemail@test.com");
+    cy.get('input[name="password"]').type("password123");
+    cy.contains("Iniciar sesión").click();
+    cy.url().should("include", "dashboard");
+  });
+});

@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "cypress": "^13.6.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "openai": "^4.20.0"
+  },
+  "scripts": {
+    "generate": "node .\\chat-gpt.js",
+    "cypress:open": "npx cypress open"
+  }
+}

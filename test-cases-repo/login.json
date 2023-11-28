@@ -1,0 +1,16 @@
+{
+    "spec_name": "Login",
+    "test_cases": [
+        {
+            "title": "Login as Client user",
+            "steps": [
+              "go to http://diversatest.com:82/",
+              "click on 'Identificarse' button",
+              "enter email: testingclientemail@test.com",
+              "enter password: password123",
+              "click 'Iniciar sesión' button",
+              "url should contains dashboard"
+            ]
+        }
+    ]
+}
